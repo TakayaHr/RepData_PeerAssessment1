@@ -6,7 +6,7 @@ Sys.time()
 ```
 
 ```
-## [1] "2014-05-16 14:41:46 JST"
+## [1] "2014-05-16 15:26:15 JST"
 ```
 
 This is my report for the assessment 1 of "Reproductive Research."
@@ -467,4 +467,3 @@ H. Wickham. ggplot2: elegant graphics for data analysis. Springer New
 
 Baptiste Auguie (2012). gridExtra: functions in Grid graphics. R package
   version 0.9.1. http://CRAN.R-project.org/package=gridExtra
-

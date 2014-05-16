@@ -221,4 +221,3 @@ H. Wickham. ggplot2: elegant graphics for data analysis. Springer New
 
 Baptiste Auguie (2012). gridExtra: functions in Grid graphics. R package
   version 0.9.1. http://CRAN.R-project.org/package=gridExtra
-

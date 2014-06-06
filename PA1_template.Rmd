@@ -3,7 +3,7 @@ Reproducible Research: Peer Assessment 1
 ```{r}
 Sys.time()
 ```
-This is my report for the assessment 1 of "Reproductive Research."
+This is my report for the assessment of "Reproductive Research."
 
 ## Loading and preprocessing the data
 I loaded the dataset, "Activity monitoring data." I saved the data as "raw.data."
@@ -49,6 +49,7 @@ g<-g+geom_histogram(binwidth=1000)
 g+labs(list(title="The total number of steps taken per day",
                x="Total number of steps per each day",y="Frequency"))
 ```
+
 The mean and median of total number of steps taken per day is in this summary.
 ```{r}
 summary(tsd)
@@ -74,6 +75,7 @@ q<-ggplot(mean.int,aes(x=interval,y=mean))+geom_line()
 q+labs(list(title="average daily activity pattern",x="interval",
             y="the average number of steps taken for each intaval"))
 ```
+
 The interval contains the maximum averaged number of steps is;
 ```{r}
 sort.data<-mean.int[order(mean.int$mean,decreasing=TRUE),]
@@ -138,6 +140,7 @@ p<-p+geom_histogram(binwidth=1000)
 p+labs(list(title="The total number of steps taken per day  (with missing data filled in)",
             x="Total number of steps per each day",y="Frequency"))
 ```
+
 And I calculated the mean and median;
 ```{r}
 summary(tsd2)
@@ -145,7 +148,7 @@ meanB<-mean(tsd2$tsd2,na.rm=TRUE)       #only mean
 medianB<-median(tsd2$tsd2,na.rm=TRUE)   #only median
 ```
 To compare tsd and tsd2, I made multiple histograms in a screen.
-```{r, warning=FALSE}
+```{r,hsit_total, warning=FALSE}
 library(gridExtra)
 g<-g+labs(list(title="The total number of steps taken per day",
                x="Total number of steps per each day",y="Frequency"))
@@ -153,13 +156,15 @@ p<-p+labs(list(title="The total number of steps taken per day (with missing data
             x="Total number of steps per each day",y="Frequency"))
 grid.arrange(g,p,nrow=2)
 ```
+
 And I overayed multiple histograms.
-```{r}
+```{r,fig_hist_last}
 pg<-ggplot(data=tsd,aes(x=tsd))
 pg<-pg+geom_histogram(binwidth=1000)
 pg<-pg+geom_histogram(data=tsd2,aes(x=tsd2),binwidth=1000,alpha=0.5)
 pg+labs(list(title="The difference of total number of steps taken per day with or without NAs",x="Total number of steps per each day",y="Frequency"))
 ```
+
 The difference between tsd and tsd2 is in the gray zone.
 This zone makes the differences of mean and median number.
 ```{r}
@@ -192,7 +197,7 @@ week.int<-data.frame(interval=as.numeric(int.names),weekend=end.int,weekday=day.
 head(week.int)
 ```
 Last, I made a panel plot conteining a time series plot, using ggplot2 and gridExtra.
-```{r}
+```{r,fig_week}
 a<-ggplot(week.int,aes(x=interval,y=weekend))+geom_line(col="blue")
 b<-ggplot(week.int,aes(x=interval,y=weekday))+geom_line(col="blue")
 a<-a+labs(list(title="average daily activity pattern on weekends",
